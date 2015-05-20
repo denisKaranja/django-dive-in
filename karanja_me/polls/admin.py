@@ -3,7 +3,7 @@ from django.contrib import admin
 # register Pools app in the admin interface
 from .models import Choice, Question
 
-class ChoiceInLine(admin.StackedInline):
+class ChoiceInLine(admin.TabularInline):
   model = Choice
   extra = 3
 
