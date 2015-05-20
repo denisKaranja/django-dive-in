@@ -15,6 +15,10 @@ class QuestionAdmin(admin.ModelAdmin):
     ("Date Information", {"fields": ["pub_date"], "classes": ["collapse"]})
   ]
 
+  list_display = ("question_text", "pub_date", "was_published_recently")
+  list_filter = ["pub_date"] # adds a filter to the sidebar
+  search_fileds = ["question_text"]
+
   inlines = [ChoiceInLine]
 
 admin.site.register(Question, QuestionAdmin)
