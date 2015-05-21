@@ -1,9 +1,10 @@
-li a {
-  color: gray;
+table a {
+  color: green;
 }
 
 a:hover{
-  color: green;
+  color: black;
+  text-decoration: none;
 }
 
 .offset-top{

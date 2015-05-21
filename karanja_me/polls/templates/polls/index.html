@@ -10,17 +10,29 @@
 </head>
 <body>
 
-  <div class="container offset-top">
-    <h3>Poll Questions</h3>
+  <div class="container offset-top col-md-6 col-md-offset-3">
+    <h3 class="col-md-offset-3">Poll Questions</h3>
       {% if latest_question_list %}
 
-      <ul>
+      <input placeholder = "Search for a question..." class="form-control" />
+      <hr class="hrDividerBetween">
+
+      <table class="table table-bordered table-hover table-responsive">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Question</td>
+        </tr>
+      </thead>
         {% for question in latest_question_list %}
 
-        <li> <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a> </li>
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a> </td>
+        </tr>
 
         {% endfor %}
-      </ul>
+      </table>
 
       {% else %}
 
