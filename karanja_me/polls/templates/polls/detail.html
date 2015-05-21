@@ -1,15 +1,35 @@
-<h1> {{ question.question_text }} </h1>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polling station</title>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+  <!-- Styelsheets libs -->
+  <link rel="stylesheet" type="text/css" href="{% static 'lib/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-  {% csrf_token %}
+</head>
+<body>
 
-  {% for choice in question.choice_set.all %}
-      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-      <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-  {% endfor %}
+<div class="container offset-top col-md-5 col-md-offset-4 well">
+<h3 class="highlighter">Vote</h3>
+ <hr class="hrDivider">
 
-  <input type="submit" value="Vote" />
-</form>
+  <h4> {{ question.question_text }} </h4>
+  {% if error_message %}<span class='text text-danger'>{{ error_message }}</span>{% endif %}
 
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Vote" class="btn btn-success form-control" />
+  </form>
+
+</div>
+
+</body>
+</html>

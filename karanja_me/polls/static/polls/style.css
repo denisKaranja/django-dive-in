@@ -1,12 +1,19 @@
 table a {
   color: green;
 }
-
 a:hover{
   color: black;
   text-decoration: none;
 }
-
 .offset-top{
   margin-top: 3%;
+}
+.bold{
+  font-weight: bold;
+}
+.hrDivider{
+  border-bottom: 3px solid gray;
+}
+.highlighter{
+  color: #F15725;
 }

@@ -42,7 +42,7 @@ def vote(request, question_id):
       # Redisplay the question voting form.
       return render(request, 'polls/detail.html', {
           'question': p,
-          'error_message': "Please select a choice first.",
+          'error_message': "You must select a choice.",
       })
   else:
       selected_choice.votes += 1

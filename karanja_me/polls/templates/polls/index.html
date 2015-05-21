@@ -11,15 +11,15 @@
 <body>
 
   <div class="container offset-top col-md-6 col-md-offset-3">
-    <h3 class="col-md-offset-3">Poll Questions</h3>
+    <h3 class="col-md-offset-3 highlighter">Poll Questions</h3>
       {% if latest_question_list %}
 
-      <input placeholder = "Search for a question..." class="form-control" />
-      <hr class="hrDividerBetween">
+      <input placeholder = "Search question for polls" class="form-control" />
+      <hr class="hrDivider">
 
-      <table class="table table-bordered table-hover table-responsive">
+      <table class="table table-striped table-bordered table-hover table-responsive">
       <thead>
-        <tr>
+        <tr class="bold">
           <td>#</td>
           <td>Question</td>
         </tr>
