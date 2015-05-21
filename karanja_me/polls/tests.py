@@ -56,7 +56,7 @@ class QuestionViewTests(TestCase):
         """
         response = self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Polls unavailable at the moment.")
+        self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
     def test_index_view_with_a_past_question(self):
