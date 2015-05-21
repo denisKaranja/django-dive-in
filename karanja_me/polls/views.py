@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
+from .models import Question
 # entry point of the polls app
 def index(request):
-  return HttpResponse("Hello world, you're at Polls entry point")
+  latest_question_list = Question.objects.order_by('-pub_date')[:5]
+  context = {'latest_question_list': latest_question_list}
+  return render(request, 'polls/index.html', context)
 
 
 def detail(request, question_id):
