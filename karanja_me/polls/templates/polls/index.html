@@ -1,15 +1,33 @@
-{% if latest_question_list %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polls</title>
+  <!-- Styelsheets libs -->
+  <link rel="stylesheet" type="text/css" href="{% static 'lib/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
-<ul>
-  {% for question in latest_question_list %}
+</head>
+<body>
 
-  <li> <a href="{% url 'polls:detail' question.id %}/">{{question.question_text}}</a> </li>
+  <div class="container offset-top">
+    <h3>Poll Questions</h3>
+      {% if latest_question_list %}
 
-  {% endfor %}
-</ul>
+      <ul>
+        {% for question in latest_question_list %}
 
-{% else %}
+        <li> <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a> </li>
 
-<p>No polls are available.</p>
+        {% endfor %}
+      </ul>
 
-{% endif %}
+      {% else %}
+
+      <p>No polls are available.</p>
+
+      {% endif %}
+  </div>
+
+</body>
+</html>

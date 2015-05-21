@@ -1,0 +1,11 @@
+li a {
+  color: gray;
+}
+
+a:hover{
+  color: green;
+}
+
+.offset-top{
+  margin-top: 3%;
+}
